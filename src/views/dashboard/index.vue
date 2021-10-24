@@ -6,7 +6,10 @@
     <el-button type="text" @click="dialogVisible = true"
       >点击打开 Dialog</el-button
     >
+    <!-- <el-button v-longpress="longpress">长按</el-button> -->
+
     <el-dialog
+      v-dialogDrag
       title="提示"
       :visible.sync="dialogVisible"
       width="30%"
@@ -20,26 +23,15 @@
         >
       </span>
     </el-dialog>
+
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-// import elDragDialog from "@/directive/el-drag-dialog";
-// 引入上面的方法//
-// import elDragDialog from "@/directive/el-drag-dialog";
-// 在export default中//
-// directives: { elDragDialog },
-// 在弹框中  v-el-drag-dialog  //这个就是我们写好的自定义组件//
-//  <el-dialog
-//       v-el-drag-dialog
-//       :visible.sync="dialogTableVisible"
-//       title="Shipping address"
-//       @dragDialog="handleDrag"
-//     >
+
 export default {
   name: "Dashboard",
-  // directives: { elDragDialog },
   data() {
     return {
       dialogVisible: false,

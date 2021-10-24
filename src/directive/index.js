@@ -1,13 +1,15 @@
 import drag from './drag'
 
-const install = function(Vue) {
-  Vue.directive('el-drag-dialog', drag)
+// 自定义指令
+const directives = {
+
+  'dialogDrag': drag
 }
 
-if (window.Vue) {
-  window['el-drag-dialog'] = drag
-  Vue.use(install); // eslint-disable-line
+export default {
+  install(Vue) {
+    Object.keys(directives).forEach((key) => {
+      Vue.directive(key, directives[key])
+    })
+  },
 }
-
-drag.install = install
-export default drag
