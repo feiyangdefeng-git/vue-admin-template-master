@@ -1,0 +1,341 @@
+@import './basic-new-colors.scss';
+
+//样式重置
+* {
+    box-sizing: border-box;
+    outline: none;
+}
+
+// 1px 的基准数据  1rem = 192px
+$base-size: 1px;
+
+
+//系统颜色 list
+// $color: ("c1": #F7F8FC,
+//     "c2": #757C98,
+//     "c3": #2660FF,
+//     "c4": #CCCCCC,
+//     "c5": #ffffff,
+//     "c6": #000000,
+//     "c7": #E6E6E6,
+//     "c8": #FAFAFA);
+
+//生成相应的颜色类  字体颜色和背景颜色
+@each $cKey,
+$cVal in $color {
+    .text-#{$cKey} {
+        color: $cVal;
+    }
+
+    .bg-#{$cKey} {
+        background-color: $cVal;
+    }
+}
+
+// 字体大小
+$base-font-size: $base-size;
+
+@for $sKey from 10 through 100 {
+    .fs-#{$sKey} {
+        font-size: $sKey * $base-font-size;
+    }
+}
+
+@for $sKey from 1 through 9 {
+    .fw-#{$sKey*100} {
+        font-weight: $sKey*100;
+    }
+}
+
+//弹性盒
+
+// 垂直
+.flex-column {
+    flex-direction: column;
+}
+
+// 水平
+.flex-row {
+    flex-direction: row;
+}
+
+// 顶部固定定位
+.fixed-t {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+// 底部固定定位
+.fixed-b {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+
+.fixed-l {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    z-index: 1030;
+}
+
+.fixed-r {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    z-index: 1030;
+}
+
+// flex-Num
+@for $sKey from 1 through 20 {
+    .flex-#{$sKey} {
+        flex: $sKey;
+    }
+}
+
+
+// 边距设置  margin  padding
+
+$spacing-types:(m:margin, p:padding);
+$spacing-directions:(t:top, r:right, b:bottom, l:left);
+$spacing-base-size:$base-size;
+
+@each $typeKey,
+$typeVal in $spacing-types {
+    //.m-1
+
+    @for $sKey from 0 through 100 {
+        .#{$typeKey}-#{$sKey} {
+            #{$typeVal}: $sKey*$spacing-base-size;
+        }
+    }
+
+    //.mx-1 .my-1
+    @for $sKey from 0 through 100 {
+        .#{$typeKey}x-#{$sKey} {
+            #{$typeVal}-left: $sKey*$spacing-base-size;
+            #{$typeVal}-right: $sKey*$spacing-base-size;
+        }
+
+        .#{$typeKey}y-#{$sKey} {
+            #{$typeVal}-top: $sKey*$spacing-base-size;
+            #{$typeVal}-bottom: $sKey*$spacing-base-size;
+        }
+    }
+
+
+    //.mt-1
+    @each $dirKey,
+    $dirVal in $spacing-directions {
+        @for $sKey from 0 through 100 {
+            .#{$typeKey}#{$dirKey}-#{$sKey} {
+                #{$typeVal}-#{$dirVal }: $sKey*$spacing-base-size;
+            }
+        }
+    }
+
+    @each $dirKey,
+    $dirVal in $spacing-directions {
+        .border-#{$dirKey}-0 {
+            border-#{$dirVal}: 0
+        }
+
+        .border-0 {
+            border: 0
+        }
+
+        // 边框 border-left-1{ }
+        @each $borkey,
+        $borVal in $color {
+            .border-#{$dirKey}-#{$borkey} {
+                border-#{$dirVal}: 1*$spacing-base-size solid $borVal
+            }
+
+            //    @each $borskey,$borsVal in $spacing-px{
+            @for $sKey from 0 through 100 {
+                .border-#{$sKey}-#{$borkey} {
+                    border: $sKey*$spacing-base-size solid $borVal
+                }
+
+                .border-#{$sKey}-#{$dirKey}-#{$borkey} {
+                    border-#{$dirVal}: $sKey*$spacing-base-size solid $borVal
+                }
+            }
+        }
+    }
+}
+
+
+//主轴对齐方式
+$flex-jc: (start: flex-start,
+    end: flex-end,
+    center: center,
+    betweet: space-between,
+    around: space-around,
+    flexend: flex-end);
+
+@each $key,
+$val in $flex-jc {
+    .jc-#{$key} {
+        justify-content: $val;
+    }
+}
+
+
+//交叉轴对齐方式
+$flex-ai: (start: flex-start,
+    end: flex-end,
+    center: center,
+    baseline: baseline,
+    stretch: stretch,
+);
+
+@each $key,
+$val in $flex-ai {
+    .ai-#{$key} {
+        align-items: $val;
+    }
+}
+
+
+// Wrap
+
+@each $key,
+$val in (n: nowrap, w: wrap, Wreverse: wrap-reverse) {
+    .flex-#{$key} {
+        flex-wrap: $val;
+    }
+}
+
+// 宽高
+@for $i from 1 through 100 {
+    .cw-#{$i} {
+        width: #{$i}vw;
+    }
+
+    .ch-#{$i} {
+        height: #{$i}vh;
+    }
+}
+
+// 浮动
+
+@each $key,
+$var in (l: left, r: right, n: none) {
+    .float-#{$key} {
+        float: $var;
+    }
+}
+
+// 定位
+
+@each $var in (static, relative, absolute, fixed, sticky) {
+    .position-#{$var} {
+        position: $var;
+    }
+}
+
+$base-width-unit: 1%;
+
+@for $sKey from 0 through 100 {
+    .w-#{$sKey} {
+        width: $sKey * $base-width-unit
+    }
+
+    .h-#{$sKey} {
+        height: $sKey * $base-width-unit
+    }
+}
+
+
+// display
+
+@each $key,
+$val in (none: none, block:block, contents:contents, flex:flex, grid: grid, Iblock: inline-block,
+    Iflex: inline-flex, Igrid: inline-grid, Itable: inline-table, table: table, Tca: table-caption,
+    Tce: table-cell, Tco: table-column, Tcg: table-column-group, tfg: table-footer-group,
+    Thg: table-header-group, Tr: table-row, Trg: table-row-group) {
+    .d-#{$key} {
+        display: $val;
+    }
+}
+
+
+// 垂直对齐
+//vertical-align: middle
+@each $key,
+$var in (ba: baseline,
+    t: top,
+    m: middle,
+    b: bottom,
+    tt: text-top,
+    tb: text-bottom) {
+    .va-#{$key} {
+        vertical-align: $var;
+    }
+}
+
+//滚动条设置 of-a h v s
+// overflow-auto	overflow: auto;
+// overflow-hidden	overflow: hidden;
+// overflow-visible	overflow: visible;
+// overflow-scroll	overflow: scroll;
+
+// overflow-x-auto	overflow-x: auto;
+// overflow-y-auto	overflow-y: auto;
+// overflow-x-hidden	overflow-x: hidden;
+// overflow-y-hidden	overflow-y: hidden;
+// overflow-x-visible	overflow-x: visible;
+// overflow-y-visible	overflow-y: visible;
+// overflow-x-scroll	overflow-x: scroll;
+// overflow-y-scroll	overflow-y: scroll;
+
+$overflow-types:(a:auto, h:hidden, v:visible, s:scroll);
+$overflow-directions:(x:top, y:right);
+
+@each $key,
+$val in $overflow-directions {
+    @each $key_,
+    $val_ in $overflow-types {
+        .of-#{$key}-#{$key_} {
+            overflow-#{$key}: $val_;
+        }
+    }
+}
+@each $key_,$val_ in $overflow-types {
+       
+    .of-#{$key_} {
+        overflow: $val_;
+    }
+}
+// 自吸顶功能 和 自吸底功能
+.top-0{
+    position: sticky;
+    top:0;
+}
+.bottom-0{
+    position: sticky;
+    bottom:0;
+}
+
+
+// 超出部分...显示
+.text-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.text-ellipsis1 {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}

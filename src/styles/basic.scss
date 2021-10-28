@@ -1,0 +1,500 @@
+
+//样式重置
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+// 1px 的基准数据  1rem = 192px
+$base-size: 1px;
+
+
+// body {
+//   margin: 0;
+//   font-family: Arial, Helvetica, sans-serif;
+//   // line-height: 1.2em; //定义默认行高
+//   background-color: linear-gradient(
+//     to right,
+//     #3d1f27,
+//     #6b192c,
+//     #84032b,
+//     #84032b,
+//     #6b192c,
+//     #3d1f27
+//   );
+// }
+
+//系统颜色 list
+$color: (
+  "c1": #F7F8FC,
+  "c2": #757C98,
+  "c3": #2660FF,
+  "c4": #CCCCCC,
+  "c5": #ffffff,
+  "c6": #000000,
+  "c7": #E6E6E6,
+  "c8": #FAFAFA
+
+);
+
+//生成相应的颜色类
+@each $cKey, $cVal in $color {
+  .text-#{$cKey} {
+    color: $cVal;
+  }
+
+  .bg-#{$cKey} {
+    background-color: $cVal;
+  }
+}
+
+////text
+//
+@each $var in (left, center, right) {
+   .text-#{$var} {
+       text-align: $var;
+   }
+}
+
+.fw-b {
+  font-weight: bold;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+// 字体大小
+$base-font-size: $base-size;
+$font-sizes: (
+    10: 10,
+    11: 11,
+    12: 12,
+    13: 13,
+    14: 14,
+    15: 15,
+    16: 16,
+    17: 17,
+    18: 18,
+    19: 19,
+    20: 20,
+    21: 21,
+    22: 22,
+    23: 23,
+    24: 24,
+    25: 25,
+    26: 26,
+    27: 27,
+    28: 28,
+    29: 29,
+    30: 30,
+    31: 31,
+    32: 32,
+    33: 33,
+    34: 34,
+    35: 35,
+    36: 36,
+    37: 37,
+    38: 38,
+    39: 39,
+    40: 40,
+    41: 41,
+    42: 42,
+    43: 43,
+    44: 44,
+    45: 45,
+    46: 46,
+    47: 47,
+    48: 48,
+    49: 49,
+    50: 50,
+    51: 51,
+    52: 52,
+    53: 53,
+    54: 54,
+    55: 55,
+    56: 56,
+    57: 57,
+    58: 58,
+    59: 59,
+    60: 60,
+    61: 61,
+    62: 62,
+    63: 63,
+    64: 64,
+    65: 65,
+    66: 66,
+    67: 67,
+    68: 68,
+    69: 69,
+    70: 70,
+    71: 71,
+    72: 72,
+    73: 73,
+    74: 74,
+    75: 75,
+    76: 76,
+    77: 77,
+    78: 78,
+    79: 79,
+    80: 80
+);
+
+@each $sKey, $sVal in $font-sizes {
+  .fs-#{$sKey} {
+    font-size: $sVal * $base-font-size;
+  }
+}
+
+//弹性盒
+
+// 垂直
+.flex-column {
+  flex-direction: column;
+}
+
+// 水平
+.flex-row {
+  flex-direction: row;
+}
+
+// 顶部固定定位
+.fixed-top {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+// 底部固定定位
+.fixed-bottom {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+// @for $i from 1 through 12{
+//   .z#{$i}
+//   {
+//       transform: rotate(30deg * $i);
+//   }
+// }
+.flex-1 {
+   flex: 1;
+}
+.flex-2 {
+  flex: 2;
+}
+.flex-3 {
+  flex: 3;
+}
+.flex-4 {
+  flex: 4;
+}
+.flex-5 {
+  flex: 5;
+}
+.flex-6 {
+  flex: 6;
+}
+.flex-7 {
+  flex: 7;
+}
+.flex-8 {
+  flex: 8;
+}
+.flex-9 {
+  flex: 9;
+}
+.flex-10 {
+  flex: 10;
+}
+.flex-groe-1 {
+   flex-grow: 1;
+}
+
+//边距
+$spacing-types:(m:margin,p:padding);
+$spacing-directions:(t:top,r:right,b:bottom,l:left);
+$spacing-base-size:$base-size;
+$spacing-size:(0:0, 1:1, 2:2, 3:3, 4:4, 5:5, 6:6, 7:7, 8:8, 9:9, 10: 10, 11: 11, 12: 12, 13: 13, 14: 14, 15: 15, 16: 16, 17: 17, 18: 18, 19: 19, 20: 20, 21: 21, 22: 22, 23: 23, 24: 24, 25: 25,
+26:26,27:27,28:28,29:29,30:30,31:31,32:32,33:33,34:34,35:35,36:36,37:37,38:38,39:39,40:40,41:41,42:42,43:43,44:44,45:45,46:46,47:47,48:48,49:49,50:50,51:51,52:52,53:53,54:54,55:55,56:56,57:57,58:58,59:59,60:60,
+61:61,62:62,63:63,64:64,65:65,66:66,67:67,68:68,69:69,70:70,71:71,72:72,73:73,74:74,75:75,76:76,77:77,78:78,79:79,80:80,
+81:81,82:82,83:83,84:84,85:85,86:86,87:87,88:88,89:89,90:90,91:91,92:92,93:93,94:94,95:95,96:96,97:97,98:98,99:99,100:100
+);
+$spacing-px:(1:1, 2:2, 3:3, 4:4, 5:5, 6:6, 7:7, 8:8, 9:9, 10: 10, 11: 11, 12: 12, 13: 13, 14: 14, 15: 15);
+
+@each $typeKey,$typeVal in $spacing-types {
+   //.m-1
+   @each  $sizeKey,$sizeVal in $spacing-size {
+       .#{$typeKey}-#{$sizeKey} {
+           #{$typeVal}:$sizeVal*$spacing-base-size;
+       }
+   }
+   //.mx-1 .my-1
+
+   @each  $sizeKey,$sizeVal in $spacing-size {
+       .#{$typeKey}x-#{$sizeKey} {
+           #{$typeVal}-left:$sizeVal*$spacing-base-size;
+           #{$typeVal}-right:$sizeVal*$spacing-base-size;
+       }
+
+       .#{$typeKey}y-#{$sizeKey} {
+           #{$typeVal}-top:$sizeVal*$spacing-base-size;
+           #{$typeVal}-bottom:$sizeVal*$spacing-base-size;
+       }
+   }
+
+   //.mt-1
+   @each  $dirKey,$dirVal in $spacing-directions {
+       @each  $sizeKey,$sizeVal in $spacing-size {
+           .#{$typeKey}#{$dirKey}-#{$sizeKey} {
+               #{$typeVal}-#{$dirVal }:$sizeVal*$spacing-base-size;
+           }
+       }
+   }
+
+  @each  $dirKey,$dirVal in $spacing-directions {
+    .border-#{$dirKey}-0 {
+      border-#{$dirVal} :0
+    }
+    .border-0 {
+      border:0
+    }
+    // 边框
+    @each $borkey, $borVal in $color{
+      .border-#{$dirKey}-#{$borkey} {
+        border-#{$dirVal} :1*$spacing-base-size solid $borVal
+      }
+      @each $borskey,$borsVal in $spacing-px{
+        .border-#{$borskey}-#{$borkey} {
+          border: $borsVal*$spacing-base-size solid $borVal
+        }
+        .border-#{$borskey}-#{$dirKey}-#{$borkey} {
+          border-#{$dirVal}:$borsVal*$spacing-base-size solid $borVal
+        }
+      }
+    }
+  }
+}
+
+
+
+//主轴对齐方式
+$flex-jc: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  betweet: space-between,
+  around: space-around,
+  flexend: flex-end
+);
+
+@each $key, $val in $flex-jc {
+  .jc-#{$key} {
+    justify-content: $val;
+  }
+}
+
+//交叉轴对齐方式
+$flex-ai: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  baseline: baseline,
+  stretch: stretch,
+);
+
+@each $key, $val in $flex-ai {
+  .ai-#{$key} {
+    align-items: $val;
+  }
+}
+
+// Wrap
+
+@each $key, $val in (n: nowrap, w: wrap, Wreverse: wrap-reverse) {
+  .flex-#{$key} {
+    flex-wrap: $val;
+  }
+}
+
+
+
+// 文本转换
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+.text-uppercase {
+  text-transform: uppercase;
+}
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+// 宽高
+@for $i from 1 through 100
+{
+    .cw-#{$i}{
+      width: #{$i}vw;
+    }
+    .ch-#{$i}{
+      height: #{$i}vh;
+    }
+}
+
+
+// .cw-10{
+//   width:10vw;
+// }
+// .cw-20{
+//   width:20vw;
+// }
+// .cw-30{
+//   width:30vw;
+// }
+// .cw-40{
+//   width:40vw;
+// }
+// .cw-50{
+//   width:50vw;
+// }
+// .cw-60{
+//   width:60vw;
+// }
+// .cw-70{
+//   width:70vw;
+// }
+// .cw-80{
+//   width:80vw;
+// }
+// .cw-90{
+//   width:90vw;
+// }
+// .cw-100{
+//   width:100vw;
+// }
+// .ch-10{
+//   height: 10vh;
+// }
+// .ch-20{
+//   height: 20vh;
+// }
+// .ch-30{
+//   height: 30vh;
+// }
+// .ch-40{
+//   height: 40vh;
+// }
+// .ch-50{
+//   height: 50vh;
+// }
+// .ch-60{
+//   height: 60vh;
+// }
+// .ch-70{
+//   height: 70vh;
+// }
+// .ch-80{
+//   height: 80vh;
+// }
+// .ch-90{
+//   height: 90vh;
+// }
+// .ch-100{
+//   height: 100vh;
+// }
+
+
+
+// 浮动
+
+@each $key, $var in (l: left, r: right, n: none) {
+  .float-#{$key} {
+    float: $var;
+  }
+}
+
+// 定位
+
+@each $var in (static, relative, absolute, fixed, sticky) {
+   .position-#{$var} {
+       position: $var;
+   }
+}
+
+// 尺寸
+
+// .w-25{width: 25%}
+$Size:(1:1%,2:2%,3:3%,4:4%,5:5%,6:6%,7:7%,8:8%,9:9%, 10:10%,11:11%,12:12%,13:13%,14:14%, 15:15%,
+  16:16%,17:17%,18:18%,19:19%, 20:20%,
+  21:21%,22:22%,23:23%,24:24%, 25:25%,
+  26:26%,27:27%,28:28%,29:29%, 30:30%,
+  31:31%,32:32%,33:33%,34:34%, 35:35%,
+  36:36%,37:37%,38:38%,39:39%, 40:40%, 
+  41:41%,42:42%,43:43%,44:44%, 45:45%,
+  46:46%,47:47%,48:48%,49:49%, 50:50%,
+       55:55%, 60:60%, 65:65%, 70:70%, 75:75%, 80:80%, 85:85%, 90:90%, 95:95%, 100:100%);
+
+@each $key, $var in $Size {
+   .w-#{$key} {
+       width: $var
+   }
+   .h-#{$key} {
+       height: $var
+   }
+}
+
+
+
+// display
+
+@each $key, $val in (none: none, block:block, contents:contents, flex:flex, grid: grid, Iblock: inline-block,
+       Iflex: inline-flex, Igrid: inline-grid, Itable: inline-table, table: table, Tca: table-caption,
+       Tce: table-cell, Tco: table-column, Tcg: table-column-group, tfg: table-footer-group,
+       Thg: table-header-group, Tr: table-row, Trg: table-row-group) {
+   .d-#{$key} {
+       display: $val;
+   }
+}
+
+
+// 垂直对齐
+//vertical-align: middle
+@each $key, $var in (
+      ba: baseline,
+      t: top,
+      m: middle,
+      b: bottom,
+      tt: text-top,
+      tb: text-bottom
+    )
+{
+  .va-#{$key} {
+    vertical-align: $var;
+  }
+}
+
+// 超出部分...显示
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.text-ellipsis1  {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+}
+

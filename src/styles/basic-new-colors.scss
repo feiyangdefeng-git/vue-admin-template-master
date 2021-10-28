@@ -1,0 +1,25 @@
+// @for $r from 0 through 255 {
+
+//     //   .z#{$i}
+//     //   {
+//     //       transform: rotate(30deg * $i);
+//     //   }
+//     @for $g from 0 through 255 {
+//         @for $b from 0 through 255 {
+//             @for $a from 0 through 10 {
+//                 .text-#{$r}-#{$g}-#{$b}-#{$a} {
+//                     color: rgba(#{$r}, #{$g}, #{$b}, #{$a});
+//                 }
+//             }
+//         }
+//     }
+// }
+//系统颜色 list
+$color: ("c1": #F7F8FC,
+    "c2": #757C98,
+    "c3": #2660FF,
+    "c4": #CCCCCC,
+    "c5": #ffffff,
+    "c6": #000000,
+    "c7": #E6E6E6,
+    "c8": #FAFAFA);
