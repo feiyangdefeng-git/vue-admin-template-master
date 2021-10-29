@@ -1,14 +1,24 @@
+// 顶部log颜色设置
+$Log: #2b2f3a; // 2b2f3a
+$LogText: #ffffff;
+
 // sidebar
+// 左侧菜单字体颜色
 $menuText:#bfcbd9;
+// 左侧菜单选中的颜色
 $menuActiveText:#409EFF;
+// 左侧菜单二级选中的颜色
 $subMenuActiveText:#f4f4f5; //https://github.com/ElemeFE/element/issues/12951
 
+// 左侧菜单栏的背景色
 $menuBg:#304156;
+// 鼠标悬停菜单时的颜色
 $menuHover:#263445;
-
+// 二级菜单打开后的颜色
 $subMenuBg:#1f2d3d;
+// 鼠标悬停二级菜单的颜色
 $subMenuHover:#001528;
-
+// 左侧菜单的宽度
 $sideBarWidth: 210px;
 
 // the :export directive is the magic sauce for webpack
@@ -22,4 +32,6 @@ $sideBarWidth: 210px;
   subMenuBg: $subMenuBg;
   subMenuHover: $subMenuHover;
   sideBarWidth: $sideBarWidth;
+  log:$Log;
+  logText:$LogText
 }

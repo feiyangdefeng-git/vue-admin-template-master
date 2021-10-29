@@ -30,6 +30,7 @@
 // import tt from "./test.vue";
 // import formitem from "./formItem.vue";
 export default {
+  name:'IQuery',
   props: {
     formData: {
         type: Array,
