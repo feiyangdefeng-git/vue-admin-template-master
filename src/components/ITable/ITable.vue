@@ -37,19 +37,19 @@ export default {
   components: { IColumn },
   inheritAttrs:false,
   props: {
-    columnList: {
+    _columnList: {
       type: Array,
       required: true,
     },
-    tableData: {
+    _tableData: {
       type: Array,
     },
-    tableProp: { type: Object },
+    _tableProp: { type: Object },
   },
   data() {
     return {
-      title: "这是由render函数渲染的标签。",
-      level: "1",
+      // title: "这是由render函数渲染的标签。",
+      // level: "1",
 
       tableKey_: 0,
       columnList_: [],
@@ -58,7 +58,7 @@ export default {
   },
   computed: {},
   watch: {
-    columnList: {
+    _columnList: {
       handler: function (val, oldVal) {
         this.columnList_ = val;
         this.tableKey_ = this.tableKey_ + 1; // 用于保证每次数据更新时组件一定能渲染
@@ -66,7 +66,7 @@ export default {
       deep: true,
       immediate: true,
     },
-    tableData: {
+    _tableData: {
       handler: function (val, oldVal) {
         this.tableData_ = val;
         this.tableKey_ = this.tableKey_ + 1; // 用于保证每次数据更新时组件一定能渲染

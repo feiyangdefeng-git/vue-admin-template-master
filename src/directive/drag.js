@@ -1,8 +1,11 @@
 export default {
   bind(el, binding, vnode, oldVnode) {
     console.log('***************************', el, binding, vnode, oldVnode)
-    const dialogHeaderEl = el.querySelector('.el-dialog__header')
-    const dragDom = el.querySelector('.el-dialog')
+    const dialogHeaderEl =
+			el.querySelector(".el-dialog__header") ||
+			el.querySelector(".ICard-header")
+    const dragDom =
+			el.querySelector(".el-dialog") || el.querySelector(".ICard-con") 
 
     dialogHeaderEl.style.cssText += 'cursor:move'
     dragDom.style.cssText += 'top:10px'

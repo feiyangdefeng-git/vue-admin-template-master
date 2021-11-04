@@ -32,7 +32,7 @@
 export default {
   name:'IQuery',
   props: {
-    formData: {
+    _formData: {
         type: Array,
         required: true,
     },
@@ -56,7 +56,7 @@ export default {
   },
   computed: {},
   watch: {
-    formData: {
+    _formData: {
       handler: function (val, oldVal) {
         this.formData_ = val;
       },

@@ -1,13 +1,12 @@
 import Vue from 'vue'
-
-
 import settings from './settings'
 import 'normalize.css/normalize.css' // A modern alternative to CSS resets
 
 import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+// import 'element-ui/lib/theme-chalk/index.css'
 import locale from 'element-ui/lib/locale/lang/zh-CN' // lang i18n   en   zh-CN
 import components from './components'
+import API from './api/index'
 
 import '@/styles/index.scss' // global css
 import Directives from './directive/index'
@@ -32,6 +31,7 @@ if (process.env.NODE_ENV === 'production') {
   const { mockXHR } = require('../mock')
   mockXHR()
 }
+Vue.prototype.$API = API
 // 全局注册自定义组件
 Vue.use(components)
 Vue.use(Directives)
