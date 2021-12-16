@@ -403,12 +403,13 @@
   import ThemePicker from './theme-picker.vue';
   import AlgoliaSearch from './search.vue';
   import compoLang from '../i18n/component.json';
-  import Element from 'main/index.js';
+  // import Element from 'main/index.js';
   import themeLoader from './theme/loader';
   import bus from '../bus';
   import { ACTION_USER_CONFIG_UPDATE } from './theme/constant.js';
 
-  const { version } = Element;
+  // const { version } = Element;
+  const { version } = { version :'1.0.0'}
 
   export default {
     data() {

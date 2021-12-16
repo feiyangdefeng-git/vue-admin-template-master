@@ -9,7 +9,7 @@
       <el-button type="text" @click="dialogVisible = true">点击打开 Dialog</el-button>
     </div>
     <div class="row-item flex-1 w-100 d-flex jc-center ai-center my-10 p-10">
-      <IQuery :formData="formData"></IQuery>
+      <IQuery :_formData="formData"></IQuery>
     </div>
     <div class="row-item flex-1 w-100 d-flex jc-center ai-center my-10 p-10">
       <div
@@ -121,8 +121,13 @@
       class="row-item flex-1 w-100 d-flex jc-center ai-center my-10 p-10"
     >
     
-    <alert></alert>
-    
+    <!-- <alert></alert> -->
+     <!-- <el-skeleton-item
+          variant="image"
+          style="width: 240px; height: 240px;"
+        /> -->
+
+        <el-empty :image-size="200"></el-empty>
     </div>
     <div
       class="row-item flex-1 w-100 d-flex jc-center ai-center my-10 p-10"
@@ -139,8 +144,8 @@
       :before-close="handleClose"
     >
       <i-table
-        :columnList="tempTableColumnList"
-        :tableData="tempTableData"
+        :_columnList="tempTableColumnList"
+        :_tableData="tempTableData"
         :span-method="arraySpanMethod"
         style="width: 100%"
         border
@@ -162,13 +167,14 @@ import { mapGetters } from 'vuex'
 // import ITable from './../../components/ITable/ITable.vue';
 
 // import IQuery from './../../components/IQuery/IQuery.vue';
-import alert from './../../examples/docs/zh-CN/alert.vue'
+// import alert from './../../examples/docs/zh-CN/alert.vue'
 
 export default {
   name: 'Dashboard',
-  components: { alert },
+  // components: { alert },
   data() {
     return {
+      num:0,
       option: {
         color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
         title: {

@@ -68,7 +68,7 @@
 </table>
 <h3 id="xing-gao"><a class="header-anchor" href="#xing-gao">¶</a> 行高</h3>
 <div>
-<img class="lineH-left" src="~examples/assets/images/typography.png" />
+<img class="lineH-left" :src="typography" />
 <ul class="lineH-right">
 <li>line-height:1 <span>无行高</span></li>
 <li>line-height:1.3 <span>紧凑</span></li>
@@ -85,6 +85,7 @@
     <script>
   import bus from '../../bus';
   import { ACTION_USER_CONFIG_UPDATE } from '../../components/theme/constant.js';
+  import typography from '../../assets/images/typography.png';
   const varMap = [
     '$--font-size-extra-large',
     '$--font-size-large',

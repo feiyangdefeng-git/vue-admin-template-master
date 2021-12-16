@@ -10,7 +10,7 @@ class LocalStorage {
 	 * @param {String} key localStorage对象的key
 	 * @returns {Object} 返回一个对象，如：{name:'',gae:''}
 	 */
-	get(key) {
+	p_get(key) {
 		return JSON.parse(localStorage.getItem(key))
 	}
 	/**
@@ -19,7 +19,7 @@ class LocalStorage {
 	 * @param {Object} value localStorage对象的值， 例如：{name:'',gae:''}
 	 * @returns {}
 	 */
-	set(key, value) {
+	p_set(key, value) {
 		localStorage.setItem(key, JSON.stringify(value))
 	}
 	/**
@@ -27,14 +27,14 @@ class LocalStorage {
 	 * @param {String} key  localStorage对象的key
 	 * @returns {}
 	 */
-	removeitem(key) {
+	p_removeitem(key) {
 		localStorage.removeItem(key)
 	}
 	/**
 	 * 删除所有缓存的数据
 	 * @returns {}
 	 */
-	removeAll() {
+	p_removeAll() {
 		localStorage.clear()
 	}
 
@@ -43,7 +43,7 @@ class LocalStorage {
 	 * @param {*} fun 注册事件  参数为： key  新值    老值
 	 * @returns {}
 	 */
-	localStorageChange(fun) {
+	p_localStorageChange(fun) {
 		let showStorage = function(e) {
 			if (!e) {
 				e = window.event

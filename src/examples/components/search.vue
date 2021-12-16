@@ -114,7 +114,7 @@
 </style>
 
 <script>
-  import algoliasearch from 'algoliasearch';
+  // import algoliasearch from 'algoliasearch';
 
   export default {
     data() {
@@ -149,7 +149,7 @@
 
     computed: {
       lang() {
-        return this.$route.meta.lang;
+        return 'zh-CN';
       },
 
       placeholder() {
@@ -163,15 +163,15 @@
 
     watch: {
       lang() {
-        this.initIndex();
+        // this.initIndex();
       }
     },
 
     methods: {
-      initIndex() {
-        const client = algoliasearch('4C63BTGP6S', '0729c3c7f4dc8db7395ad0b19c0748d2');
-        this.index = client.initIndex(`element-${ this.lang ? this.langs[this.lang].index : 'zh' }`);
-      },
+      // initIndex() {
+      //   const client = algoliasearch('4C63BTGP6S', '0729c3c7f4dc8db7395ad0b19c0748d2');
+      //   this.index = client.initIndex(`element-${ this.lang ? this.langs[this.lang].index : 'zh' }`);
+      // },
 
       querySearch(query, cb) {
         if (!query) return;

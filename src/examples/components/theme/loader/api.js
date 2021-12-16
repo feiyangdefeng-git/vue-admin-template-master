@@ -1,7 +1,8 @@
-import Element from 'main/index.js';
+// import Element from 'main/index.js';
 import { post, get } from './ajax';
 
-const { version } = Element;
+// const { version } = Element;
+const { version } = { version :'1.0.0'}
 
 const hostList = {
   local: 'http://localhost:3008/',

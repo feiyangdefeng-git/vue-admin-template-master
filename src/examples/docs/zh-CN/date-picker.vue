@@ -260,27 +260,7 @@
 <div class="warning">
 <p>请注意大小写</p>
 </div>
-<p>| 格式 | 含义 | 备注 | 举例 |
-|------|------|------|------|------|
-| <code>yyyy</code> | 年 | | 2017 |
-| <code>M</code>  | 月 | 不补0 | 1 |
-| <code>MM</code> | 月 | | 01 |
-| <code>W</code>  | 周 | 仅周选择器的 <code>format</code> 可用；不补0 | 1 |
-| <code>WW</code> | 周 | 仅周选择器的 <code>format</code> 可用 | 01 |
-| <code>d</code>  | 日 | 不补0 | 2 |
-| <code>dd</code> | 日 | | 02 |
-| <code>H</code>  | 小时 | 24小时制；不补0 | 3 |
-| <code>HH</code> | 小时 | 24小时制 | 03 |
-| <code>h</code>  | 小时 | 12小时制，须和 <code>A</code> 或 <code>a</code> 使用；不补0 | 3 |
-| <code>hh</code> | 小时 | 12小时制，须和 <code>A</code> 或 <code>a</code> 使用 | 03 |
-| <code>m</code>  | 分钟 | 不补0 | 4 |
-| <code>mm</code> | 分钟 | | 04 |
-| <code>s</code>  | 秒 | 不补0 | 5 |
-| <code>ss</code> | 秒 | | 05 |
-| <code>A</code>  | AM/PM | 仅 <code>format</code> 可用，大写 | AM |
-| <code>a</code>  | am/pm | 仅 <code>format</code> 可用，小写 | am |
-| <code>timestamp</code> | JS时间戳 | 仅 <code>value-format</code> 可用；组件绑定值为<code>number</code>类型 | 1483326245000 |
-| <code>[MM]</code> | 不需要格式化字符 | 使用方括号标识不需要格式化的字符 (如  [A] [MM])  | MM |</p>
+<p><table><thead><tr><th>格式</th><th>含义</th><th>备注</th><th>举例</th></tr></thead><tbody><tr><td><code>yyyy</code></td><td>年</td><td></td><td>2017</td></tr><tr><td><code>M</code></td><td>月</td><td>不补0</td><td>1</td></tr><tr><td><code>MM</code></td><td>月</td><td></td><td>01</td></tr><tr><td><code>W</code></td><td>周</td><td>仅周选择器的 <code>format</code> 可用；不补0</td><td>1</td></tr><tr><td><code>WW</code></td><td>周</td><td>仅周选择器的 <code>format</code> 可用</td><td>01</td></tr><tr><td><code>d</code></td><td>日</td><td>不补0</td><td>2</td></tr><tr><td><code>dd</code></td><td>日</td><td></td><td>02</td></tr><tr><td><code>H</code></td><td>小时</td><td>24小时制；不补0</td><td>3</td></tr><tr><td><code>HH</code></td><td>小时</td><td>24小时制</td><td>03</td></tr><tr><td><code>h</code></td><td>小时</td><td>12小时制，须和 <code>A</code> 或 <code>a</code> 使用；不补0</td><td>3</td></tr><tr><td><code>hh</code></td><td>小时</td><td>12小时制，须和 <code>A</code> 或 <code>a</code> 使用</td><td>03</td></tr><tr><td><code>m</code></td><td>分钟</td><td>不补0</td><td>4</td></tr><tr><td><code>mm</code></td><td>分钟</td><td></td><td>04</td></tr><tr><td><code>s</code></td><td>秒</td><td>不补0</td><td>5</td></tr><tr><td><code>ss</code></td><td>秒</td><td></td><td>05</td></tr><tr><td><code>A</code></td><td>AM/PM</td><td>仅 <code>format</code> 可用，大写</td><td>AM</td></tr><tr><td><code>a</code></td><td>am/pm</td><td>仅 <code>format</code> 可用，小写</td><td>am</td></tr><tr><td><code>timestamp</code></td><td>JS时间戳</td><td>仅 <code>value-format</code> 可用；组件绑定值为<code>number</code>类型</td><td>1483326245000</td></tr><tr><td><code>[MM]</code></td><td>不需要格式化字符</td><td>使用方括号标识不需要格式化的字符 (如  [A] [MM])</td><td>MM</td></tr></tbody></table></p>
 <demo-block>
         
         <template slot="source"><element-demo4 /></template>
@@ -1282,4 +1262,30 @@ render._withStripped = true
         }
       }
     </script>
-  
+    <style scoped>
+      .content>table {
+        border-collapse: collapse;
+        width: 100%;
+        background-color: #fff;
+        font-size: 14px;
+        margin-bottom: 45px;
+        line-height: 1.5em;
+    }
+    .content>table td:first-child, .content>table th:first-child {
+      padding-left: 10px;
+  }
+  .content>table th {
+    text-align: left;
+    white-space: nowrap;
+    color: #909399;
+    font-weight: 400;
+}
+ .content>table td,  .content>table th {
+    border-bottom: 1px solid #dcdfe6;
+    padding: 15px;
+    max-width: 250px;
+}
+.page-component .content>table td {
+    color: #606266;
+}
+    </style>

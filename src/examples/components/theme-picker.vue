@@ -22,8 +22,9 @@
 </style>
 
 <script>
-  import Element from 'main/index.js';
-  const { version } = Element;
+  // import Element from 'main/index.js';
+  // const { version } = Element;
+  const { version } = { version :'1.0.0'}
 
   const ORIGINAL_THEME = '#409EFF';
   export default {

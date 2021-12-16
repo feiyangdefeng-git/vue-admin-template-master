@@ -1,7 +1,7 @@
 <template>
   <el-form :inline="true"  class="demo-form-inline">
 
-    <el-form-item :key="'form-item-'+index " :label="item.type == 'btn'? '' : item.lable" v-for="(item,index) in  formData">
+    <el-form-item :key="'form-item-'+index " :label="item.type == 'btn'? '' : item.lable" v-for="(item,index) in  formData_">
 
         <el-input v-if="item.type == 'inputarea' " type="textarea" v-model="item.vmodel"></el-input>
         <el-input v-if="item.type == 'input' " v-model="item.vmodel" :placeholder="item.placeholder"></el-input>
@@ -55,10 +55,15 @@ export default {
     };
   },
   computed: {},
+   mounted() {
+    // console.log('IQuery 0=>',this);
+    
+  },
   watch: {
     _formData: {
       handler: function (val, oldVal) {
         this.formData_ = val;
+        // console.log('watch=>',val,this.formData_ );
       },
       deep: true,
       immediate: true,

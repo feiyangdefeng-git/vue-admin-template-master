@@ -161,8 +161,9 @@
 
 <script type="text/babel">
   import compoLang from '../i18n/component.json';
-  import Element from 'main/index.js';
-  const { version } = Element;
+  // import Element from 'main/index.js';
+  // const { version } = Element;
+  const { version } = { version :'1.0.0'}
 
   export default {
     data() {

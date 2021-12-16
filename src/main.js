@@ -14,6 +14,19 @@ import App from './App'
 import store from './store'
 import router from './router'
 
+// 实例库需要的引用=========================
+import demoBlock from "./examples/components/demo-block"
+import MainFooter from "./examples/components/footer"
+import MainHeader from "./examples/components/header"
+import SideNav from "./examples/components/side-nav"
+import FooterNav from "./examples/components/footer-nav"
+import './examples/theme-chalk/src/index.scss'
+import "./examples/demo-styles/index.scss"
+import "./examples/assets/styles/common.css"
+import "./examples/assets/styles/fonts/style.css"
+import icon from "./examples/icon.json"
+// 实例库需要的引用=========================
+
 import '@/icons' // icon
 import '@/permission' // permission control
 import './styles/basic-new.scss'
@@ -39,6 +52,15 @@ Vue.use(Directives)
 Vue.use(ElementUI, { locale })
 // 如果想要中文版 element-ui，按如下方式声明
 // Vue.use(ElementUI)
+
+// 实例库需要的引用=========================
+Vue.prototype.$icon = icon; // Icon 列表页用
+Vue.component("demo-block", demoBlock)
+Vue.component("main-footer", MainFooter)
+Vue.component("main-header", MainHeader)
+Vue.component("side-nav", SideNav)
+Vue.component("footer-nav", FooterNav)
+// 实例库需要的引用=========================
 
 Vue.config.productionTip = false
 Vue.prototype.$settings = settings

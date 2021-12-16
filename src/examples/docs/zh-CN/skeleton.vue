@@ -342,9 +342,11 @@
       </section>
     </template>
     <script>
+      import { Skeleton } from 'element-ui';
       export default {
         name: 'component-doc',
         components: {
+          "el-skeleton":Skeleton,
           "element-demo0": (function() {
     
     var render = function() {
