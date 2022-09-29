@@ -39,7 +39,7 @@ async function apiAxios(method, url, params, ...arg) {
 
 const http = {
 	get: async function(url, params, ...arg) {
-		return await apiAxios("GET", url, params, ...arg)
+	  return await apiAxios("GET", url, params, ...arg)
 	},
 	post: async function(url, params, ...arg) {
 		return await apiAxios("POST", url, params, ...arg)
@@ -64,7 +64,7 @@ const API = {
 		const { url, method, proxyPrefix, ...args_ } = apiConfig[interfaceName]
 		const url_ = proxyPrefix_[proxyPrefix || "p1"] + url
 		const tempParm = Object.assign({}, { ...args_ }, { ...args })
-		return await http[urlData.method](url_, data, ...tempParm)
+		return await http[method](url_, data, ...tempParm)
 	},
 	apiConfig
 }

@@ -12,6 +12,9 @@
       <IQuery :_formData="formData"></IQuery>
     </div>
     <div class="row-item flex-1 w-100 d-flex jc-center ai-center my-10 p-10">
+      <DiffTable :data-group="[oldData, newData]" :columns="tableColumns"></DiffTable>
+    </div>
+    <div class="row-item flex-1 w-100 d-flex jc-center ai-center my-10 p-10">
       <div
         class="
           flex-1
@@ -162,7 +165,7 @@
 
 <script>
 // import echarts from 'echarts'
-let echarts = require('echarts')
+const echarts = require('echarts')
 import { mapGetters } from 'vuex'
 // import ITable from './../../components/ITable/ITable.vue';
 
@@ -174,7 +177,30 @@ export default {
   // components: { alert },
   data() {
     return {
-      num:0,
+      oldData: [
+        { id: 1, name: 'zhangsan1', address: 'zxczxczxc', age: 23 },
+        { id: 2, name: 'zhangsan2', age: 23.5, address: 'zxczxczxc' },
+        { id: 3, name: 'zhangsan34', age: 23, address: 'zxczxczxc' },
+        { id: 4, name: 'zhangsan4', age: 23, address: 'zxczxczxc' },
+        { id: 5, name: 'zhangsan5', age: 23, address: 'zxczxczxc' },
+        { id: 6, name: 'zhangsan5', age: 23, address: 'zxczxczxc' }
+      ],
+      newData: [
+        { id: 1, name: 'zhangsan1', age: 23, address: 'zxczxczxc' },
+        { id: 2, name: 'zhangsan2', age: 23, address: 'zxczxczxc' },
+        { id: 4, name: 'zhangsan4', age: 23, address: '地址地址地址' },
+        { id: 3, name: 'zhangsan3', age: 23, address: 'zxczxczxc' },
+        { id: 5, name: 'zhangsan5', age: 23, address: 'zxczxczxc' },
+        { id: 7, name: 'zhangsan5', age: 23, address: 'zxczxczxc' },
+        { id: 8, name: 'zhangsan5', age: 23, address: 'zxczxczxc' }
+      ],
+      tableColumns: [
+        { label: '唯一id', prop: 'id' },
+        { label: '名称', prop: 'name' },
+        { label: '年龄', prop: 'age' },
+        { label: '地址', prop: 'address' }
+      ],
+      num: 0,
       option: {
         color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
         title: {
@@ -488,7 +514,6 @@ export default {
   },
   mounted() {
     console.log('API=>',this.$API);
-    
   },
   methods: {
     formReset(data) {

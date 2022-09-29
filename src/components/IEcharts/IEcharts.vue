@@ -12,7 +12,7 @@ export default {
       type: String,
       require: true
     },
-    _option: {
+    option: {
       type: Object,
       required: false,
     },
@@ -38,7 +38,7 @@ export default {
       deep: true,
       immediate: true,
     },
-    _option: {
+    option: {
       handler: function (val, oldVal) {
         this.option_ = val;
         this.$nextTick().then(function () {
